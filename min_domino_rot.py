@@ -15,9 +15,9 @@ def min_domino_rotations(A, B):
             dom_cnt[a] += 1
             dom_cnt[b] += 1
 
-    sixes = set([k for (k, v) in dom_cnt.items() if v == length])
+    candidates = set([k for (k, v) in dom_cnt.items() if v == length])
 
-    if not sixes:
+    if not candidates:
         return -1
 
     A_freq = Counter(A)
@@ -25,8 +25,8 @@ def min_domino_rotations(A, B):
 
     min_rot = float('inf')
 
-    for six in sixes:
-        min_rot = min(length - A_freq[six], length - B_freq[six])
+    for candidate in candidates:
+        min_rot = min(length - A_freq[candidate], length - B_freq[candidate])
     return min_rot
 
 A, B = [2, 1, 2, 4, 2, 2], [5, 2, 6, 2, 3, 2]
