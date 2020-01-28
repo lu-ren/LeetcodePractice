@@ -1,5 +1,3 @@
-# https://leetcode.com/problems/min-cost-climbing-stairs/
-
 def min_climbing_stairs(costs):
     r = []
 
