@@ -29,5 +29,20 @@ def cross_sum_fn(nums, left, right, p):
         max_right_sum = max(cur, max_right_sum)
     return max_left_sum + max_right_sum
 
+# Kadane's algorithm based on the following formula:
+# dp[i] = max(dp[i-1], 0) + arr[i]
+def kadane(arr):
+    dp = [arr[0]]
+
+    for i in range(1, len(arr)):
+        dp.append(max(dp[i - 1], 0) + arr[i])
+    print(dp)
+    return max(dp)
+
 arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 print (divide_n_conquer(arr, 0, len(arr) - 1))
+print (kadane(arr))
+arr = [0, 1, 2, 3, -1]
+print (kadane(arr))
+arr = [-1, 0, 1, 2, 3]
+print (kadane(arr))

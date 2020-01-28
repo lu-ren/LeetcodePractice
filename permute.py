@@ -4,14 +4,14 @@ Basic list permutation
 
 import copy
 
-def permute(arr, l, r):
-    if l == r:
+def permute(arr, l):
+    if l == len(arr) - 1:
         yield copy.copy(arr)
-    for i in range(l, r + 1):
+    for i in range(l, len(arr)):
         arr[l], arr[i] = arr[i], arr[l]
-        yield from permute(arr, l + 1, r)
-        arr[l], arr[i] = arr[i], arr[l]
+        yield from permute(arr, l + 1)
+        arr[l], arr[i] = arr[l], arr[i]
 
 string = 'ABC'
-for p in permute(list(string), 0, len(string) - 1):
+for p in permute(list(string), 0):
     print (p)
